@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FakeRealProductSystemModelStoreContainer" CdmEntityContainer="FakeRealProductSystemEntities">
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="FakeRealProductSystemModel.Branch">
+        <MappingFragment StoreEntitySet="Branches">
+          <ScalarProperty Name="br_id" ColumnName="br_id" />
+          <ScalarProperty Name="br_name" ColumnName="br_name" />
+          <ScalarProperty Name="br_headquarter" ColumnName="br_headquarter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="FakeRealProductSystemModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="pr_id" ColumnName="pr_id" />
+          <ScalarProperty Name="pr_name" ColumnName="pr_name" />
+          <ScalarProperty Name="pr_branch" ColumnName="pr_branch" />
+          <ScalarProperty Name="pr_type" ColumnName="pr_type" />
+          <ScalarProperty Name="pr_origin" ColumnName="pr_origin" />
+          <ScalarProperty Name="pr_price" ColumnName="pr_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTypes">
+      <EntityTypeMapping TypeName="FakeRealProductSystemModel.ProductType">
+        <MappingFragment StoreEntitySet="ProductTypes">
+          <ScalarProperty Name="ty_id" ColumnName="ty_id" />
+          <ScalarProperty Name="ty_name" ColumnName="ty_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

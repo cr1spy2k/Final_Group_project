@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+}
+
+<div class="row">
+    @foreach (var list in ViewBag.AllChainContent)
+    {
+        <div class="col-md-12" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(51, 51, 51) 0px 0px 0px 1px; height: 255px;">
+            <h2>@list[0]</h2>
+            @foreach (var item in list)
+            {
+                <p>@item</p>
+            }
+        </div>
+    }
+</div>
+
+<!--
+@if(ViewBag.V == true)
+{
+    <h1>Isvalid : true</h1>
+}
+else
+{
+    <h1>Isvalid : false</h1>
+}
+-->

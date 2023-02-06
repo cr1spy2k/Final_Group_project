@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FakeRealProductSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="br_id" />
+    </Key>
+    <Property Name="br_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="br_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="br_headquarter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="Self.fk_product_branch" FromRole="Branches" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="pr_id" />
+    </Key>
+    <Property Name="pr_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pr_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="pr_branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pr_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pr_origin" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="pr_price" Type="Double" />
+    <NavigationProperty Name="Branch" Relationship="Self.fk_product_branch" FromRole="Products" ToRole="Branches" />
+    <NavigationProperty Name="ProductType" Relationship="Self.fk_product_producttype" FromRole="Products" ToRole="ProductTypes" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="ty_id" />
+    </Key>
+    <Property Name="ty_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ty_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="Self.fk_product_producttype" FromRole="ProductTypes" ToRole="Products" />
+  </EntityType>
+  <Association Name="fk_product_branch">
+    <End Role="Branches" Type="Self.Branch" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branches">
+        <PropertyRef Name="br_id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="pr_branch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_product_producttype">
+    <End Role="ProductTypes" Type="Self.ProductType" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductTypes">
+        <PropertyRef Name="ty_id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="pr_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FakeRealProductSystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Branches" EntityType="Self.Branch" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="ProductTypes" EntityType="Self.ProductType" />
+    <AssociationSet Name="fk_product_branch" Association="Self.fk_product_branch">
+      <End Role="Branches" EntitySet="Branches" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="fk_product_producttype" Association="Self.fk_product_producttype">
+      <End Role="ProductTypes" EntitySet="ProductTypes" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
