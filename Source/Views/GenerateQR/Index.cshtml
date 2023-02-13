@@ -14,18 +14,18 @@
 <body>
     @using (Html.BeginForm(null, null, FormMethod.Post))
     {
-        <h2 style="color: black; font-weight: bold">Tạo QR Code</h2>
+        <h2 style="color: black; font-weight: bold">Create QR Code</h2>
         <table>
             <tbody>
                 <tr>
                     <td>
-                        <h4 style="font-style:italic; color: black">* Chọn sản phẩm cần tạo QR Code</h4>
+                        <h4 style="font-style:italic; color: black">* Choose products to generate QR code</h4>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <select name="qrText" style="height: 29px; font-size: 18px;">
-                            <option value="">Chọn sản phẩm</option>
+                            <option value="">Choose Product</option>
                             @{
                                 using (var ProductDB = new AFakeProductIdentificationSystem.Models.FakeRealProductSystemEntities())
                                 {
@@ -49,8 +49,8 @@
     @{
         if (Model != null)
         {
-            <h3 style="color: #3498DB">Mã QR khởi tạo thành công!</h3>
-            <h4 style="font-style:italic;color:red;">* Sử dụng trình quét QR Code của smartphone để quét mã</h4>
+            <h3 style="color: #3498DB">QR code is successfully generated </h3>
+            <h4 style="font-style:italic;color:red;">* Please use your QR code scanner to scan</h4>
             <div style="display: flex;flex-direction: column;">
                 <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(Model))" width="500" height="500" />
                 <a download="@String.Format("AFPIS-{0}.png",Guid.NewGuid())" href="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(Model))" style="margin-left: 180px;margin-top: -30px;">Tải xuống QRCode</a>

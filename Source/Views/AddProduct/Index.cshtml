@@ -8,12 +8,12 @@
 
 @using (Html.BeginForm("Submit", "AddProduct", FormMethod.Post))
 {
-    <h2 style="color: black; font-weight: bold; margin-bottom: 30px;">Thêm sản phẩm</h2>
+    <h2 style="color: black; font-weight: bold; margin-bottom: 30px;">Add Product</h2>
     <table>
         <tbody>
             <tr>
                 <td>
-                    <h4 style="font-style: normal; color: black; width: 180px;">Tên sản phẩm</h4>
+                    <h4 style="font-style: normal; color: black; width: 180px;">Product's Name</h4>
                 </td>
                 <td>
                     <input name="productName" style="width: 250px; height: 29px; font-size: 18px;" />
@@ -21,11 +21,11 @@
             </tr>
             <tr>
                 <td>
-                    <h4 style="font-style:normal; color: black">Nhãn hiệu</h4>
+                    <h4 style="font-style:normal; color: black">Brand</h4>
                 </td>
                 <td>
                     <select name="productBranch" style="width: 250px; height: 29px; font-size: 18px;">
-                        <option value="">Nhãn hiệu</option>
+                        <option value="">Brand</option>
                         @{
                             using (var ProductDB = new AFakeProductIdentificationSystem.Models.FakeRealProductSystemEntities())
                             {
@@ -43,11 +43,11 @@
             </tr>
             <tr>
                 <td>
-                    <h4 style="font-style: normal; color: black; width: 180px;">Loại sản phẩm</h4>
+                    <h4 style="font-style: normal; color: black; width: 180px;">Product's Type</h4>
                 </td>
                 <td>
                     <select name="productType" style="width: 250px; height: 29px; font-size: 18px;">
-                        <option value="">Loại sản phẩm</option>
+                        <option value="">Product's Type</option>
                         @{
                             using (var ProductDB = new AFakeProductIdentificationSystem.Models.FakeRealProductSystemEntities())
                             {
@@ -65,7 +65,7 @@
             </tr>
             <tr>
                 <td>
-                    <h4 style="font-style: normal; color: black; width: 180px;">Xuất xứ</h4>
+                    <h4 style="font-style: normal; color: black; width: 180px;">Origin</h4>
                 </td>
                 <td>
                     <input name="productLocation" style="width: 250px; height: 29px; font-size: 18px;" />
@@ -73,7 +73,7 @@
             </tr>
             <tr>
                 <td>
-                    <h4 style="font-style: normal; color: black; width: 180px;">Giá bán (VNĐ)</h4>
+                    <h4 style="font-style: normal; color: black; width: 180px;">Price (VND)</h4>
                 </td>
                 <td>
                     <input name="productPrice" type="number" style="width: 250px; height: 29px; font-size: 18px;" />

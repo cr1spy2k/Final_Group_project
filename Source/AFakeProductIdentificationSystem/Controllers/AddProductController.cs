@@ -53,7 +53,7 @@ namespace AFakeProductIdentificationSystem.Controllers
 
             HomeController.blockChain.MineBlock(HomeController.minerAddress, prId);
 
-            ViewBag.Message = "Thêm sản phẩm thành công!";
+            ViewBag.Message = "Product is sucessfully added!";
 
             return View("Index");
         }

@@ -8,20 +8,20 @@
 @{
     if (ViewBag.CheckChain == false)
     {
-        <h2 style="color: red; font-weight: bold">Hệ thống đang bảo trì. Xin lỗi vì bất tiện này!</h2>
+        <h2 style="color: red; font-weight: bold">Server is currently at high capacity. Sorry for the inconvenience</h2>
     }
     else
     {
         if (ViewBag.ListProduct.Count == 0)
         {
-            <h2 style="color: red; font-weight: bold">Không tìm thấy thông tin sản phẩm. Cẩn thận hàng giả!</h2>
+            <h2 style="color: red; font-weight: bold">Products is not listed in the database</h2>
 
         }
         else
         {
             foreach (var item in ViewBag.ListProduct)
             {
-                <h2 class="text-success" >Kiểm tra thành công!</h2>
+                <h2 class="text-success" >QR-check completed</h2>
                 <div style="width: 350px;  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s;">
                     <div>
                         <img src="https://usth.edu.vn/wp-content/uploads/2021/11/logo-number.jpg" alt="Avatar" style="width:100%; height: 125px">
@@ -29,12 +29,12 @@
                             <h3><b>@item.pr_name</b></h3>
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <h4><b>Mã nhãn</b></h4>
-                                    <h4><b>Nhãn hiệu</b></h4>
-                                    <h4><b>Mã loại</b></h4>
-                                    <h4><b>Loại sản phẩm</b></h4>
-                                    <h4><b>Xuất xứ</b></h4>
-                                    <h4><b>Giá bán</b></h4>
+                                    <h4><b>Brand ID</b></h4>
+                                    <h4><b>Brand</b></h4>
+                                    <h4><b>Type ID</b></h4>
+                                    <h4><b>Product's Type</b></h4>
+                                    <h4><b>Origin</b></h4>
+                                    <h4><b>Price</b></h4>
                                 </div>
                                 <div class="col-sm-2" style="margin-left:-30px;">
                                     <h4>@item.pr_branch</h4>
@@ -55,7 +55,7 @@
                                     }
                                     <h4>@item.pr_origin</h4>
                                     <h4>@String.Format("{0,15:N0} (VNĐ)", @item.pr_price)</h4>
-                                    <!--0 là index (giống chỉ {0} , 15 là lenght -->
+                                    <!--0 là index (giống chỉ {0} , 15 là length -->
                                 </div>
                             </div>
                         </div>
